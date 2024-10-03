@@ -1,7 +1,7 @@
 {
   "name": "hackerman",
   "version": "1.0.0",
-  "description": "Não faço a menor ideia doq estou fazendo",
+  "description": "Projeto",
   "main": "index.js",
   "scripts": {
     "dev": "npm run services:up && next dev",
