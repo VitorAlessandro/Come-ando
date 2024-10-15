@@ -15,16 +15,17 @@ async function status(request, response) {
     values: [databaseName],
   });
   const dbOpenedConnectionsValue = dbOpenedConnectionsResult.rows[0].count;
-  console.log(dbOpenedConnectionsValue);
-  
   
   response.status(200).json({  
     updated_at: updatedAt,
-    postgres_version: postgresVersionResult,
-    max_connections: parseInt(dbConnectionsResult),
-    opened_connections: dbOpenedConnectionsValue 
+    dependencies: {
+      database: {
+        postgres_version: postgresVersionResult,
+        max_connections: parseInt(dbConnectionsResult),
+        opened_connections: dbOpenedConnectionsValue, 
+      },
+    },
   });
-
 }
 
 
